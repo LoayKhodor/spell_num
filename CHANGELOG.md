@@ -1,8 +1,9 @@
-## 0.0.1
+## 0.0.6
 
-* TODO: Describe initial release.
 - Spell numbers in English words
 
-- You can spell up to 999 Million and with decimals
+- You can spell up to 999 million with/without decimals
 
-- You can specify a currency too or leave blank - USD EUR & LBP are supported
+- You can specify one of 3 currencies too or leave blank - USD EUR & LBP are supported
+
+- Useful for writing to excel sheets, PDF's, files...

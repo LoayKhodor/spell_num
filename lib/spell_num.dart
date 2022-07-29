@@ -5,31 +5,31 @@ String spellNum(double num, int decimal, String cur) {
     String temp = "";
     switch (num) {
       case "1":
-        temp = "One";
+        temp = "One ";
         break;
       case "2":
-        temp = "Two";
+        temp = "Two ";
         break;
       case "3":
-        temp = "Three";
+        temp = "Three ";
         break;
       case "4":
-        temp = "Four";
+        temp = "Four ";
         break;
       case "5":
-        temp = "Five";
+        temp = "Five ";
         break;
       case "6":
-        temp = "Six";
+        temp = "Six ";
         break;
       case "7":
-        temp = "Seven";
+        temp = "Seven ";
         break;
       case "8":
-        temp = "Eight";
+        temp = "Eight ";
         break;
       case "9":
-        temp = "Nine";
+        temp = "Nine ";
         break;
       default:
         temp = "";
@@ -43,34 +43,34 @@ String spellNum(double num, int decimal, String cur) {
     if (digit[0] == '1') {
       switch (digit) {
         case "10":
-          result = "Ten";
+          result = "Ten ";
           break;
         case "11":
-          result = "Eleven";
+          result = "Eleven ";
           break;
         case "12":
-          result = "Twelve";
+          result = "Twelve ";
           break;
         case "13":
-          result = "Thirteen";
+          result = "Thirteen ";
           break;
         case "14":
-          result = "Fourteen";
+          result = "Fourteen ";
           break;
         case "15":
-          result = "Fifteen";
+          result = "Fifteen ";
           break;
         case "16":
-          result = "Sixteen";
+          result = "Sixteen ";
           break;
         case "17":
-          result = "Seventeen";
+          result = "Seventeen ";
           break;
         case "18":
-          result = "Eighteen";
+          result = "Eighteen ";
           break;
         case "19":
-          result = "Nineteen";
+          result = "Nineteen ";
           break;
         default:
           result = "";
@@ -124,13 +124,14 @@ String spellNum(double num, int decimal, String cur) {
         .map((e) => int.parse(e))
         .toList());
   }
-  String numAsString = numbers.elementAt(0).toString();
+  String numAsString = numbers.elementAt(0).toString().padLeft(2,'0');
+  print(numbers);
   if (numAsString.length >= 2) {
     for (int i = 0; i < numAsString.length; i++) {
       if (i == numAsString.length - 9) {
         spellNum += getDigit(numAsString.substring(i, i + 1));
         if (!(numAsString.substring(i, i + 1) == ("0"))) {
-          spellNum += " Hundred ";
+          spellNum += "Hundred ";
         }
       }
       if (numAsString.length > 7) {
@@ -138,39 +139,39 @@ String spellNum(double num, int decimal, String cur) {
           --i;
           if (i == numAsString.length - 8) {
             spellNum += getTens(numAsString.substring(i, i + 2));
-            spellNum += " Million ";
+            spellNum += "Million ";
             ++i;
             continue;
           }
 
           spellNum += getDigit(numAsString.substring(i, i + 1));
-          spellNum += " Million ";
+          spellNum += "Million ";
           continue;
         }
       }
       if (numAsString.length == 7) {
         if (i == numAsString.length - 7) {
           spellNum += getDigit(numAsString.substring(i, i + 1));
-          spellNum += " Million ";
+          spellNum += "Million ";
           continue;
         }
       }
       if (i == numAsString.length - 6) {
         spellNum += getDigit(numAsString.substring(i, i + 1));
-        spellNum += " Hundred ";
+        spellNum += "Hundred ";
       }
       if (numAsString.length > 4) {
         if (i == numAsString.length - 4) {
           --i;
           if (i == numAsString.length - 5) {
             spellNum += getTens(numAsString.substring(i, i + 2));
-            spellNum += " Thousand ";
+            spellNum += "Thousand ";
             ++i;
             continue;
           }
           if (i == numAsString.length - 4) {
             spellNum += getTens(numAsString.substring(i, i + 1));
-            spellNum += " Thousand ";
+            spellNum += "Thousand ";
             continue;
           }
         }
@@ -178,7 +179,7 @@ String spellNum(double num, int decimal, String cur) {
       if (numAsString.length == 4) {
         if (i == numAsString.length - 4) {
           spellNum += getDigit(numAsString.substring(i, i + 1));
-          spellNum += " Thousand ";
+          spellNum += "Thousand ";
           continue;
         }
       }
@@ -186,7 +187,7 @@ String spellNum(double num, int decimal, String cur) {
       if (i == numAsString.length - 3) {
         spellNum += getDigit(numAsString.substring(i, i + 1));
         if (!(numAsString.substring(i, i + 1) == ("0"))) {
-          spellNum += " Hundred ";
+          spellNum += "Hundred ";
         }
       }
 
@@ -198,16 +199,15 @@ String spellNum(double num, int decimal, String cur) {
     getDigit(numAsString);
   }
   if (decimal != 0) {
-    String dec = numbers.elementAt(1).toString();
-    if (!(dec == ("00"))) {
-      if (cur == ("\$")) spellDec += "and ${getTens(dec)} Cents";
-      if (cur == ("€")) spellDec += "and ${getTens(dec)} Cents";
-      // if (cur == ("LBP")) Spelldec += "and " + GetTens(dec) + " Pences";
-    }
+    String dec = numbers.elementAt(1).toString().padLeft(2, '0');
+    print(dec);
+    if (cur == ("\$") || cur == "USD") spellDec += "and ${getTens(dec)}Cents";
+    if (cur == ("€") || cur == "EUR") spellDec += "and ${getTens(dec)}Cents";
+    // if (cur == ("LBP")) spellDec += "and " + GetTens(dec) + " Pences";
   }
 
-  if (cur == ("\$")) spellNum += " Dollars";
-  if (cur == ("€")) spellNum += " Euros";
+  if (cur == ("\$") || cur == "USD") spellNum += "Dollars";
+  if (cur == ("€") || cur == "EUR") spellNum += "Euros";
   if (cur == ("LBP")) spellNum += " Lebanese Pounds";
 
   result = "$spellNum $spellDec";

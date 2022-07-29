@@ -1,7 +1,8 @@
 name: spell_num
 description: convert numbers to english words.
-version: 0.0.1
+version: 0.0.6
 homepage: https://github.com/LoayKhodor/spell_num
+
 
 environment:
   sdk: ">=2.17.5 <3.0.0"
