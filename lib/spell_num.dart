@@ -124,7 +124,7 @@ String spellNum(double num, int decimal, String cur) {
         .map((e) => int.parse(e))
         .toList());
   }
-  String numAsString = numbers.elementAt(0).toString().padLeft(2,'0');
+  String numAsString = numbers.elementAt(0).toString().padLeft(2, '0');
   print(numbers);
   if (numAsString.length >= 2) {
     for (int i = 0; i < numAsString.length; i++) {
@@ -198,9 +198,8 @@ String spellNum(double num, int decimal, String cur) {
   } else {
     getDigit(numAsString);
   }
-  if (decimal != 0) {
+  if (numbers.elementAt(1) != 0) {
     String dec = numbers.elementAt(1).toString().padLeft(2, '0');
-    print(dec);
     if (cur == ("\$") || cur == "USD") spellDec += "and ${getTens(dec)}Cents";
     if (cur == ("€") || cur == "EUR") spellDec += "and ${getTens(dec)}Cents";
     // if (cur == ("LBP")) spellDec += "and " + GetTens(dec) + " Pences";
