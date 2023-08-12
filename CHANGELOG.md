@@ -1,11 +1,5 @@
-## 0.1.1
+## [0.2.0] - 12/08/2023
 
-- Spell numbers in English words
-
-- You can spell up to 999 million with/without decimals
-
-- You can specify one of 3 currencies too or leave blank - USD EUR & LBP are supported
-
+- Spell any number with any number of decimals and any currency
+- 
 - Useful for writing to excel sheets, PDF's, files...
-
-- Fixed 0 being spelled as decimal

@@ -1,11 +1,11 @@
 name: spell_num
-description: Convert numbers to Enlgish words - up to 999 million with/without decimal places.
-version: 0.1.1
+description: Convert numbers to English words with decimal places and currencies.
+version: 0.2.0
 homepage: https://github.com/LoayKhodor/spell_num
 
 
 environment:
-  sdk: ">=2.17.5 <3.0.0"
+  sdk: ">=2.17.5 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
